@@ -51,6 +51,7 @@ export default function UserRoutes(app) {
     if (userId === "current") {
       const currentUser = req.session["currentUser"];
       if (!currentUser) {
+        console.log("No currentUser found in session.");
         res.sendStatus(401);
         return;
       }
