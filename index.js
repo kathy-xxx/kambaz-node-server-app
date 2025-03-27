@@ -10,13 +10,10 @@ import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import EnrollmentRoutes from "./Kambaz/Enrollments/routes.js";
 const app = express();
-const allowedOrigins = process.env.NETLIFY_URLS
-  ? process.env.NETLIFY_URLS.split(",")
-  : ["http://localhost:5173"];
 app.use(
   cors({
     credentials: true,
-    origin: allowedOrigins,
+    origin: process.env.NETLIFY_URL || "http://localhost:5173",
   })
 );
 const sessionOptions = {
